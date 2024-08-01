@@ -1,4 +1,4 @@
-# Store-SlotMachine
+# [Store module] SlotMachine
 SlotMachine module for Store: Bet credits, spin the slots, and win based on matching symbols. Symbols, chances and multipliers are customizable.
 
 # Config
