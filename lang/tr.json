@@ -1,0 +1,11 @@
+{
+    "Prefix": "{red}[Slot makinesi] {white}",
+    "Invalid amount of credits": "Geçersiz kredi miktarı. Lütfen geçerli bir sayı girin.",
+    "Minimum bet amount": "Minimum bahis miktarı {green}{0} {white}kredi.",
+    "Maximum bet amount": "Maksimum bahis miktarı {green}{0} {white}kredi.",
+    "Not enough credits": "Bu bahsi oynamak için yeterli krediniz yok",
+    "Result": "Sonuç: {green}{0}",
+    "Winnings": "Kazanç: {green}{0} {white}kredi",
+    "2 Symbols": "İki eşleşen sembol! Kısmi ödül: {green}{0} {white}kredi",
+    "You lost your bet": "{green}{0} {white}kredilik bahisinizi kaybettiniz."
+}
