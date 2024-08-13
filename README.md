@@ -10,6 +10,7 @@ Config will be auto generated. Default:
     "slot_machine_commands": [
         "slotmachine"
     ],
+    "slotmachine_command_cooldown": 10,
     "reward_multipliers": {
         "★": {
             "multiplier": 10,
