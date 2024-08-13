@@ -7,5 +7,6 @@
     "Result": "Sonuç: {green}{0}",
     "Winnings": "Kazanç: {green}{0} {white}kredi",
     "2 Symbols": "İki eşleşen sembol! Kısmi ödül: {green}{0} {white}kredi",
-    "You lost your bet": "{green}{0} {white}kredilik bahisinizi kaybettiniz."
+    "You lost your bet": "{green}{0} {white}kredilik bahisinizi kaybettiniz.",
+    "In cooldown": "Yeni bir slot makinesi başlatmadan önce {red}{0} {white}saniye beklemelisiniz."
 }
