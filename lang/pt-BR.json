@@ -7,5 +7,6 @@
     "Result": "Resultado: {green}{0}",
     "Winnings": "Ganhos: {green}{0} {white}créditos",
     "2 Symbols": "Dois símbolos correspondentes! Recompensa parcial: {green}{0} {white}créditos",
-    "You lost your bet": "Você perdeu a aposta de {green}{0} {white}créditos"
+    "You lost your bet": "Você perdeu a aposta de {green}{0} {white}créditos",
+    "In cooldown": "Você deve esperar {red}{0} {white}segundos antes de iniciar outro caça níquel"
 }
