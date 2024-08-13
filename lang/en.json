@@ -7,5 +7,6 @@
     "Result": "Result: {green}{0}",
     "Winnings": "Winnings: {green}{0} {white}credits",
     "2 Symbols": "Two matching symbols! Partial reward: {green}{0} {white}credits",
-    "You lost your bet": "You lost your bet of {green}{0} {white}credits"
+    "You lost your bet": "You lost your bet of {green}{0} {white}credits",
+    "In cooldown": "You must wait {red}{0} {white}seconds before starting another slot machine"
 }
