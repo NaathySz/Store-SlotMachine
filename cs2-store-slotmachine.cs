@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +19,9 @@ public class Store_SlotMachineConfig : BasePluginConfig
 
     [JsonPropertyName("slot_machine_commands")]
     public List<string> SlotMachineCommands { get; set; } =  [ "slotmachine" ];
+
+    [JsonPropertyName("slotmachine_command_cooldown")]
+    public int SlotMachineCommandCooldown { get; set; } = 10;
 
     [JsonPropertyName("reward_multipliers")]
     public Dictionary<string, SlotMachineSymbol> RewardMultipliers { get; set; } = new Dictionary<string, SlotMachineSymbol>
@@ -73,13 +76,14 @@ namespace Store_SlotMachine
     public class Store_SlotMachine : BasePlugin, IPluginConfig<Store_SlotMachineConfig>
     {
         public override string ModuleName => "Store Module [Slot Machine]";
-        public override string ModuleVersion => "0.0.1";
+        public override string ModuleVersion => "0.1.0";
         public override string ModuleAuthor => "Nathy";
 
         private readonly Random random = new Random();
         public IStoreApi? StoreApi { get; set; }
         public Store_SlotMachineConfig Config { get; set; } = new Store_SlotMachineConfig();
         private readonly ConcurrentDictionary<string, SlotMachineGame> activeGames = new ConcurrentDictionary<string, SlotMachineGame>();
+        private readonly ConcurrentDictionary<string, DateTime> playerLastSlotMachineCommandTimes = new();
 
         private List<string> emojis = [];
 
@@ -115,6 +119,19 @@ namespace Store_SlotMachine
             if (player == null) return;
 
             if (StoreApi == null) throw new Exception("StoreApi could not be located.");
+
+            if (playerLastSlotMachineCommandTimes.TryGetValue(player.SteamID.ToString(), out var lastCommandTime))
+            {
+                var cooldownRemaining = (DateTime.Now - lastCommandTime).TotalSeconds;
+                if (cooldownRemaining < Config.SlotMachineCommandCooldown)
+                {
+                    var secondsRemaining = (int)(Config.SlotMachineCommandCooldown - cooldownRemaining);
+                    info.ReplyToCommand(Localizer["Prefix"] + Localizer["In cooldown", secondsRemaining]);
+                    return;
+                }
+            }
+
+            playerLastSlotMachineCommandTimes[player.SteamID.ToString()] = DateTime.Now;
 
             if (!int.TryParse(info.GetArg(1), out int betAmount))
             {
